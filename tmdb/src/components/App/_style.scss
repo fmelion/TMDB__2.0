@@ -1,0 +1,14 @@
+@import '../../sass/abstracts/mixins';
+
+.container {
+  display: flex;
+  background-color: var(--color-grey-light-3);
+  color: lavender;
+  margin: 0 auto;
+  box-shadow: var(--shadow-dark);
+  min-height: 50rem;
+
+  @include respond(pc) {
+    background-color: black;
+  }
+}

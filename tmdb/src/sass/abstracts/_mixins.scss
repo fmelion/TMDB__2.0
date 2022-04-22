@@ -1,0 +1,26 @@
+//MEDIA QUERY MANAGER CONTROL for MOBILE FIRST
+
+/*
+
+
+min-width:600px  ===> (is width >= 600px?) and here applies ||| is the MINIMUN width at wich media query starts to apply
+
+0-600px: Phone
+
+600-900px: Tablet portrait
+
+900-1200px: Tablet landscape
+
+1200-1800: normal styles
+
+1800px + : big desktop
+
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == pc {
+    @media only screen and (min-width: 600px) {
+      @content;
+    }
+  }
+}
