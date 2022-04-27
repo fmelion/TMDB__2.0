@@ -1,11 +1,13 @@
 import * as React from 'react';
 import Navbar from '../Navbar';
+import Content from '../Content';
 import './_style.scss';
 
 export default function App() {
   return (
-    <div class='container'>
-      <Navbar></Navbar>
+    <div className='container'>
+      <Navbar className='container__navbar'></Navbar>
+      <Content/>
     </div>
   );
 }
