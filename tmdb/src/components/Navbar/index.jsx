@@ -5,11 +5,9 @@ import { MdSearch, MdAccountCircle, MdMenu } from 'react-icons/md';
 function Navbar() {
   return (
     <nav className='navbar'>
-      <div >
-        <MdMenu className='navbar__menu' />
-      </div>
+      <MdMenu className='navbar__menu' />
 
-      <button className='navbar__home'>tmdb</button>
+      <button className='navbar__home'>tmdb!</button>
 
       <div className='navbar__search'>
         <input
@@ -25,7 +23,6 @@ function Navbar() {
       </div>
 
       <div className='navbar__user'>
-
         <MdAccountCircle className='navbar__user--icon' />
 
         <div className='navbar__user--name'>fmelion</div>

@@ -1,4 +1,46 @@
-.grid{
+@import '../../sass/abstracts/mixins';
+
+.container {
   display: flex;
-  flex-wrap: wrap;
+
+  @include respond(pc) {
+    width: 80%;
+  }
+
+  &__title {
+    padding-bottom: 3.5rem;
+    font-weight: 900;
+    font-size: 3em;
+    color: var(--color-grey-dark-1);
+
+    @include respond(tablet) {
+      font-size: 4em;
+      padding-bottom: 4rem;
+    }
+
+    @include respond(pc) {
+      font-size: 5em;
+      padding-bottom: 5rem;
+    }
+  }
+
+  &__title--2 {
+    padding-top: 2rem;
+    font-weight: 600;
+    font-size: 1.6em;
+    color: var(--color-grey-dark-1);
+
+    @include respond(tablet) {
+      font-size: 1.8em;
+    }
+
+    @include respond(pc) {
+      font-size: 2em;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

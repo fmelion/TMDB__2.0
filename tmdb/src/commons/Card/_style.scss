@@ -1,21 +1,26 @@
 .card {
-
   display: flex;
   width: 33%;
   flex-direction: column;
   align-items: center;
 
   &__image {
-    padding: 1rem;
-    width:100%;
-    border-radius: 20px;
+    position: relative;
+
+    &--img {
+      padding: 1rem;
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    
   }
 
-  &__title{
-      display:none;
+  &__title {
+    display: none;
   }
 
-  &__content{
-      display:none;
+  &__content {
+    display: none;
   }
 }
