@@ -22,11 +22,17 @@ function CardGrid() {
     getPopularMovies();
   }, []);
 
+  console.log(popularMovies[0]);
+
   return (
-    <div className='grid'>
-      {popularMovies.map((popularMovie, i) => (
-        <Card element={popularMovie} />
-      ))}
+    <div className='container'>
+      <h1 className='container__title--2'>it's been shown</h1>
+      <h1 className='container__title'>Most Porpular</h1>
+      <div className='container__grid'>
+        {popularMovies.map((popularMovie, i) => (
+          <Card element={popularMovie} key={i}/>
+        ))}
+      </div>
     </div>
   );
 }

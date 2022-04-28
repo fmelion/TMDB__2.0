@@ -6,7 +6,7 @@ import './_style.scss';
 export default function App() {
   return (
     <div className='container'>
-      <Navbar className='container__navbar'></Navbar>
+      <Navbar/>
       <Content/>
     </div>
   );
