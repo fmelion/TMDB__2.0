@@ -1,32 +1,31 @@
 @import '../../sass/abstracts/mixins';
 
-
-.interval_12{
-    @include rateGradient(12.5);
+.interval_12 {
+  @include rateGradient(12.5);
 }
-.interval_25{
-    @include rateGradient(25);
+.interval_25 {
+  @include rateGradient(25);
 }
-.interval_37{
-    @include rateGradient(37.5);
+.interval_37 {
+  @include rateGradient(37.5);
 }
-.interval_50{
-    @include rateGradient(70);
+.interval_50 {
+  @include rateGradient(70);
 }
-.interval_62{
-    @include rateGradient(62.5);
+.interval_62 {
+  @include rateGradient(62.5);
 }
-.interval_75{
-    @include rateGradient(75);
+.interval_75 {
+  @include rateGradient(75);
 }
-.interval_87{
-    @include rateGradient(87.5);
+.interval_87 {
+  @include rateGradient(87.5);
 }
-.interval_97{
-    @include rateGradient(97.5);
+.interval_97 {
+  @include rateGradient(97.5);
 }
-.interval_100{
-    @include rateGradient(100);
+.interval_100 {
+  @include rateGradient(100);
 }
 
 .rate_container {
@@ -60,8 +59,6 @@
     border: 0.5px solid var(--color-grey-dark-1);
   }
 
-  
-
   &__value {
     display: flex;
     justify-content: center;
@@ -69,6 +66,8 @@
     background-color: var(--color-grey-light-1);
     border-radius: 200px;
     border: 0.5px solid var(--color-grey-dark-1);
+    color: var(--color-grey-dark-1);
+    font-weight: 600;
 
     width: 2.1rem;
     height: 2.1rem;
@@ -84,14 +83,25 @@
     }
 
     &--percentage {
-      color: var(--color-grey-dark-1);
-      font-size: 0.9em;
-      font-weight: 600;
+      
+      font-size: 0.55em;
       @include respond(tablet) {
-        font-size: 1.5em;
+        font-size: 1em;
       }
       @include respond(pc) {
         font-size: 2em;
+      }
+    }
+
+    &--sign {
+      
+      font-size: 0.3em;
+      
+      @include respond(tablet) {
+        font-size: 0.5em;
+      }
+      @include respond(pc) {
+        font-size: 1em;
       }
     }
   }

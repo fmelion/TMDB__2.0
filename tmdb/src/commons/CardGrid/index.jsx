@@ -30,7 +30,7 @@ function CardGrid() {
       <h1 className='container__title'>Most Porpular</h1>
       <div className='container__grid'>
         {popularMovies.map((popularMovie, i) => (
-          <Card element={popularMovie} key={i}/>
+          <Card element={popularMovie} key={i} />
         ))}
       </div>
     </div>
