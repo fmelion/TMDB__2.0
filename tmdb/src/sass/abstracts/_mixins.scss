@@ -34,7 +34,12 @@ min-width:600px  ===> (is width >= 600px?) and here applies ||| is the MINIMUN w
   background-image: linear-gradient(#02ff4a, #ffff);
 }
 
-
+@mixin modalGradient {
+  background-image: conic-gradient(from 45deg at 40% 0,
+    #f3f520,
+    #59d102
+  );
+}
 
 @mixin rateGradient($percentage) {
   @if $percentage <= 100 {

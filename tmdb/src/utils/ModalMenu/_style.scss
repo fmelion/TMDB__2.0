@@ -1,0 +1,61 @@
+@import '../../sass/abstracts/mixins';
+
+.modalMenu {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  width: 0%;
+  height: 0%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include modalGradient;
+  transition: all 0.3s ease-in-out;
+  color:black;
+
+  &__title {
+    padding: 2rem;
+    
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @include respond(tablet){
+        font-size: 1.6em;
+    }
+  }
+
+  &__container {
+    height: 70%;
+
+    &--item {
+      padding:1rem;
+      font-weight: bold;
+
+      @include respond(tablet){
+        font-size: 1.2em;
+    }
+    }
+  }
+
+  &__closeModal {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+
+    &--x {
+      font-weight: 600;
+    }
+  }
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+}

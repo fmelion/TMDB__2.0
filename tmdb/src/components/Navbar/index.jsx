@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './_style.scss';
 import { MdSearch, MdAccountCircle, MdMenu } from 'react-icons/md';
+import ButtonModal from '../../commons/ButtonModal';
+import ModalMenu from '../../utils/ModalMenu'
 
 function Navbar() {
+
+  const [showMenu, setShowMenu] = useState(false);
+  
   return (
     <nav className='navbar'>
-      <MdMenu className='navbar__menu' />
+
+      <ButtonModal onClick={()=>setShowMenu(true)}>
+        <MdMenu className='navbar__menu' />
+      </ButtonModal>
+
+      <ModalMenu showMenu={showMenu} setShowMenu={setShowMenu}></ModalMenu>
+
 
       <button className='navbar__home'>tmdb!</button>
 

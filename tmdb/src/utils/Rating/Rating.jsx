@@ -9,7 +9,8 @@ function Rating({ rate }) {
   return (
     <div className={`rate_container interval_${rating}`}>
       <div className='rate_container__value'>
-        <div className='rate_container__value--percentage'>{`${rate}%`}</div>
+        <div className='rate_container__value--percentage'>{`${rate}`}</div>
+        <div className='rate_container__value--sign'>%</div>
       </div>
     </div>
   );
