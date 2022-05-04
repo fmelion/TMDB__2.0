@@ -2,10 +2,10 @@ import React from 'react';
 import CardGrid from '../../commons/CardGrid';
 import './_style.scss';
 
-function Content({ movies }) {
+function Content() {
   return (
     <div className='content'>
-      <CardGrid movies={movies} />
+      <CardGrid/>
     </div>
   );
 }

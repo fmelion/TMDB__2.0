@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-//import logger from 'redux-logger';
-import popularMoviesReducer from './reducers/popularMovies';
+import getMoviesReducer from './reducers/getMovies';
 
 const store = configureStore({
-  //middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
   reducer: {
-    movies: popularMoviesReducer,
+    movies: getMoviesReducer,
   },
 });
 

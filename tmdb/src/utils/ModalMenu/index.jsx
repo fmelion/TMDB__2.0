@@ -2,16 +2,28 @@ import React from 'react';
 import './_style.scss';
 import ButtonModal from '../../commons/ButtonModal';
 import genre from '../genres';
+import { getMovies } from '../../state/reducers/getMovies';
+import { useDispatch } from 'react-redux';
 
 function ModalMenu({ setShowMenu, showMenu }) {
+  const dispatch = useDispatch();
+
+  const handleOnClick = id => {
+    dispatch(getMovies({ type: 'genre', genreId: id }));
+    setShowMenu(false);
+  };
+
   return (
     <div className={`modalMenu ${showMenu ? 'active' : ''}`}>
       <div className='modalMenu__title'>Genres</div>
       <div className='modalMenu__container'>
         {genre.genres.map(genre => (
-          <div className='modalMenu__container--item' key={genre.id}>
-            {genre.name}
-          </div>
+          <ButtonModal
+            onClick={() => handleOnClick(genre.id)}
+            key={genre.id}
+          >
+            <div className='modalMenu__container--item'>{genre.name}</div>
+          </ButtonModal>
         ))}
       </div>
       <div className='modalMenu__closeModal'>
