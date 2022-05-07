@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import './sass/main.scss';
 import App from './components/App';
 import store from './state/store';
+import Favourites from './components/Favourites';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<App />} />
+          <Route path='/favourites' element={<Favourites />} />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>

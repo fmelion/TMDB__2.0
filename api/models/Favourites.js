@@ -1,5 +1,5 @@
 const {Model, DataTypes} = require('sequelize');
-const db = require('../db');
+const db = require('../config/db');
 
 class Favourite extends Model {}
 
