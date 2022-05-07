@@ -6,12 +6,15 @@ import ModalMenu from '../../utils/ModalMenu';
 import useInput from '../../hooks/useInput';
 import { useDispatch } from 'react-redux';
 import { getMovies } from '../../state/reducers/getMovies';
+import LoginModal from '../LoginModal';
 
 function Navbar() {
   const dispatch = useDispatch();
 
   const [showMenu, setShowMenu] = useState(false);
   const searchString = useInput('');
+
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -54,9 +57,12 @@ function Navbar() {
       </form>
 
       <div className='navbar__user'>
-        <MdAccountCircle className='navbar__user--icon' />
+        {/* <MdAccountCircle className='navbar__user--icon' />
+        <div className='navbar__user--name'>fmelion</div> */}
 
-        <div className='navbar__user--name'>fmelion</div>
+        <ButtonModal onClick={() => setShowLoginModal(true)}>Login</ButtonModal>
+
+        <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal}></LoginModal>
       </div>
     </nav>
   );

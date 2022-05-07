@@ -1,0 +1,11 @@
+###
+POST http://localhost:3000/signup
+content-type: application/json
+
+{
+    "email" : "melion@gmail.com",
+    "password" : "1234"
+}
+
+
+###

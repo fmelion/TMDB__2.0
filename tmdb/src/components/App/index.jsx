@@ -9,7 +9,7 @@ export default function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(getMovies({type:"popularMovies"}));
+    dispatch(getMovies({ type: 'popularMovies' }));
   }, [dispatch]);
 
   return (

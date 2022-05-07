@@ -40,20 +40,18 @@
   }
 
   &__home {
-    //display: inline-block;
+   
     border: none;
     text-decoration: none;
     padding: 0 0.5rem;
     font-family: 'Ms Madi', cursive;
-    //height: 3rem;
-    //flex-basis: 5%;
     border-radius: 50px;
     font-weight: 600;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     @include principalGradient();
-    justify-self: start;
+    //justify-self: start;
     font-size: 1.3em;
 
     @include respond(tablet) {
