@@ -1,17 +1,35 @@
 const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const morgan = require('morgan');
+const volleyball = require('volleyball');
+const helmet = require('helmet');
+const passport = require('passport');
+const bodyParser = require('body-parser');
+const db = require('./db');
+const { User, Favourite } = require('./models');
+
+require('./config/auth');
 
 const routes = require('./routes');
+const secureRoute = require('./routes/secure-routes');
 
 const app = express();
 
+app.use(volleyball);
+app.use(helmet());
 app.use(express.json());
-app.use(cors());
-app.use(cookieParser());
-app.use(morgan('tiny'));
 
-app.use('/api', routes);
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(3001, () => console.log(`Listening on 3001`));
+app.use('/', routes);
+
+app.use('/user', passport.authenticate('jwt', { session: false }), secureRoute);
+
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  res.json({ error: err });
+});
+
+db.sync({ force: false }).then(() => {
+  app.listen(3000, function () {
+    console.log(`Listening on port 3000!`);
+  });
+});
