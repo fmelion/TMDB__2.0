@@ -2,41 +2,40 @@
 
 .wrapper {
   display: flex;
-  width: 30%;
-  margin: 0.6rem;
+  width: 25%;
+  margin: 1.5rem;
 
-  @include respond(pc){
-    margin: 1.4rem;
+  @include respond(tablet) {
+    margin: 1.8rem;
   }
-  
-  
+
+  @include respond(pc) {
+    margin: 2.8rem;
+  }
 }
 .card {
   display: flex;
-  
+
   flex-direction: column;
   align-items: center;
   background-color: var(--color-grey-light-2);
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.7);
 
-  @include respond(tablet)
-  {
+  @include respond(tablet) {
     box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.7);
   }
-  @include respond(pc)
-  {
+  @include respond(pc) {
     box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.7);
   }
 
   &__image {
     position: relative;
-    
+
     &--img {
       padding: 0.4rem;
       width: 100%;
-      border-radius: 20px;
-      
+      border-radius: 5px;
     }
   }
 

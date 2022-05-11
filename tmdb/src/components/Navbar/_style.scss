@@ -4,15 +4,15 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 2rem;
+  height: 3rem;
   width: 100%;
   z-index: 100;
 
   @include respond(tablet) {
-    height: 2.2rem;
+    height: 4rem;
   }
   @include respond(pc) {
-    height: 3rem;
+    height: 5rem;
   }
 
   display: flex;
@@ -26,16 +26,16 @@
 
   &__menu {
     margin-left: 1rem;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 2rem;
+    width: 2rem;
     fill: var(--color-grey-light-4);
     @include respond(tablet) {
-      height: 2rem;
-      width: 2rem;
+      height: 3rem;
+      width: 3rem;
     }
     @include respond(pc) {
-      height: 2.2rem;
-      width: 2.2rem;
+      height: 4rem;
+      width: 4rem;
     }
   }
 
@@ -45,27 +45,27 @@
     text-decoration: none;
     padding: 0 0.5rem;
     font-family: 'Ms Madi', cursive;
-    border-radius: 50px;
+    //border-radius: 50px;
     font-weight: 600;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     @include principalGradient();
-    //justify-self: start;
-    font-size: 1.3em;
+
+    font-size: 1.8em;
 
     @include respond(tablet) {
-      font-size: 1.5em;
+      font-size: 2.2em;
     }
     @include respond(pc) {
-      font-size: 1.8em;
+      font-size:3.2em;
     }
   }
 
   &__search {
-    --size: 1.5rem;
-    --size_tablet: 1.7rem;
-    --size_pc: 1.9rem;
+    --size: 2rem;
+    --size_tablet: 2.5rem;
+    --size_pc: 3rem;
 
     display: flex;
     border: none;
@@ -94,16 +94,16 @@
       bottom: 0;
       left: 0;
       opacity: 0;
-      font-size: 0.5em;
-      padding-left: 0.5rem;
+      font-size: 1em;
+      padding-left: 0.8rem;
       width: 85%;
 
       @include respond(tablet) {
-        font-size: 0.7em;
+        font-size: 1.2em;
       }
 
       @include respond(pc) {
-        font-size: 1em;
+        font-size: 1.7em;
       }
 
       &:focus {
@@ -117,7 +117,7 @@
       border: none;
       background: transparent;
       border-radius: 50%;
-      transition: background 150ms ease-in-out;
+      transition: all 150ms ease-in-out;
       color: var(--color-grey-light-4);
       margin-left: auto;
 
@@ -157,19 +157,30 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.6em;
+    font-size: 1em;
     color: var(--color-grey-light-4);
 
     @include respond(tablet) {
-      font-size: 0.8em;
+      font-size: 1.2em;
     }
 
     @include respond(pc) {
-      font-size: 1em;
+      font-size: 1.5em;
     }
 
     &--name {
-      padding: 0 1rem;
+      padding:0 .5rem;
+    }
+
+   
+
+    &--logOut{
+      border:none;
+      font-size: 1em;
+      color: var(--color-grey-light-4);
+      background: transparent;
+      padding: 0.5rem;
+      cursor: pointer;
     }
   }
 }

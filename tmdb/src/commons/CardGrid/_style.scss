@@ -2,6 +2,8 @@
 
 .container {
   display: flex;
+  justify-content: center;
+  //align-items:center;
 
   @include respond(pc) {
     width: 80%;
@@ -42,8 +44,6 @@
   &__grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    
-    //align-content: space-around;
+    justify-content: space-evenly;
   }
 }

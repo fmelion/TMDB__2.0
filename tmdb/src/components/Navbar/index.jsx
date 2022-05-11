@@ -1,25 +1,40 @@
 import React, { useState } from 'react';
 import './_style.scss';
-import { MdSearch, MdAccountCircle, MdMenu } from 'react-icons/md';
+import {
+  MdSearch,
+  MdAccountCircle,
+  MdMenu,
+  MdFlightTakeoff,
+} from 'react-icons/md';
 import ButtonModal from '../../commons/ButtonModal';
 import ModalMenu from '../../utils/ModalMenu';
 import useInput from '../../hooks/useInput';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getMovies } from '../../state/reducers/getMovies';
-import LoginModal from '../LoginModal';
+import LoginModal from '../LoginRegisterModals/LoginModal';
+import RegisterModal from '../LoginRegisterModals/RegisterModal';
+import { deleteUser } from '../../state/reducers/userReducer';
 
 function Navbar() {
   const dispatch = useDispatch();
+
+  const user = useSelector(state => state.user);
 
   const [showMenu, setShowMenu] = useState(false);
   const searchString = useInput('');
 
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(getMovies({ type: 'search', searchString: searchString.value }));
     document.getElementById('myInput').value = '';
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    dispatch(deleteUser());
   };
 
   return (
@@ -57,12 +72,30 @@ function Navbar() {
       </form>
 
       <div className='navbar__user'>
-        {/* <MdAccountCircle className='navbar__user--icon' />
-        <div className='navbar__user--name'>fmelion</div> */}
+        {user.id ? (
+          <>
+            <div className='navbar__user--name'>{user.username}</div>
+            <button className='navbar__user--logOut' onClick={handleLogout}>
+              <MdFlightTakeoff />
+            </button>
+          </>
+        ) : (
+          <ButtonModal onClick={() => setShowLoginModal(true)}>
+            <div className='navbar__user'>Login</div>
+          </ButtonModal>
+        )}
 
-        <ButtonModal onClick={() => setShowLoginModal(true)}>Login</ButtonModal>
+        <LoginModal
+          showLoginModal={showLoginModal}
+          setShowLoginModal={setShowLoginModal}
+          setShowRegisterModal={setShowRegisterModal}
+        ></LoginModal>
 
-        <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal}></LoginModal>
+        <RegisterModal
+          setShowLoginModal={setShowLoginModal}
+          setShowRegisterModal={setShowRegisterModal}
+          showRegisterModal={showRegisterModal}
+        ></RegisterModal>
       </div>
     </nav>
   );

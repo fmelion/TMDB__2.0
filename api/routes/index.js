@@ -6,7 +6,7 @@ const { hashSync, compareSync } = require('bcrypt');
 
 const router = express.Router();
 
-router.post('/register', async (req, res) => {
+router.post('/register', async (req, res, next) => {
   try {
     const user = await User.create({
       username: req.body.username,
@@ -23,6 +23,8 @@ router.post('/register', async (req, res) => {
       },
     });
   } catch (err) {
+    // console.log(err);
+    
     res.send({
       success: false,
       message: 'Something went wrong',
@@ -32,7 +34,7 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  const user = await User.findOne({ where: { username: req.body.username } });
+  const user = await User.findOne({ where: { email: req.body.email } });
 
   if (!user) {
     return res.status(401).send({
@@ -62,15 +64,18 @@ router.post('/login', async (req, res) => {
   });
 });
 
-router.get('/protected', passport.authenticate('jwt', {session:false}),(req,res)=>{
-  res.status(200).send({
-    success:true,
-    user: {
-      id: req.user.id,
-      username: req.user.username
-    }
-  })
-})
-
+router.get(
+  '/protected',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    res.status(200).send({
+      success: true,
+      user: {
+        id: req.user.id,
+        username: req.user.username,
+      },
+    });
+  }
+);
 
 module.exports = router;

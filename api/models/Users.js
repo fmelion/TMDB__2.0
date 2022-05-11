@@ -32,10 +32,6 @@ User.init(
   }
 );
 
-// User.addHook('beforeCreate', user => {
-//   return bcrypt.hash(user.password, 10).then(password => {
-//     user.password = password;
-//   });
-// });
+
 
 module.exports = User;
