@@ -19,17 +19,6 @@ function Card({ element }) {
             />
             <Rating rate={element.vote_average * 10} />
           </div>
-
-          <div className='card__title'>
-            <p className='card__title--text'>{element.title}</p>
-          </div>
-
-          <div className='card__content'>
-            <p className='card__content--text'>{`${element.overview.slice(
-              0,
-              150
-            )}...`}</p>
-          </div>
         </div>
       </ButtonModal>
       <FilmModal

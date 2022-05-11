@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './_style.scss';
 import {
   MdSearch,
-  MdAccountCircle,
   MdMenu,
   MdFlightTakeoff,
 } from 'react-icons/md';
@@ -81,7 +80,7 @@ function Navbar() {
           </>
         ) : (
           <ButtonModal onClick={() => setShowLoginModal(true)}>
-            <div className='navbar__user'>Login</div>
+            <div className='navbar__user--login'>Login</div>
           </ButtonModal>
         )}
 

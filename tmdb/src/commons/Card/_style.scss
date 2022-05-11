@@ -1,32 +1,23 @@
 @import '../../sass/abstracts/mixins';
 
 .wrapper {
-  display: flex;
-  width: 25%;
-  margin: 1.5rem;
-
-  @include respond(tablet) {
-    margin: 1.8rem;
-  }
-
-  @include respond(pc) {
-    margin: 2.8rem;
-  }
 }
 .card {
   display: flex;
 
   flex-direction: column;
   align-items: center;
-  background-color: var(--color-grey-light-2);
-  border-radius: 5px;
-  box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.7);
+
+  height: 100%;
+  width: 10rem;
+  margin-right: 1rem;
 
   @include respond(tablet) {
-    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.7);
+    width: 15rem;
   }
+
   @include respond(pc) {
-    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.7);
+    width: 25rem;
   }
 
   &__image {
@@ -35,15 +26,7 @@
     &--img {
       padding: 0.4rem;
       width: 100%;
-      border-radius: 5px;
+      border-radius: 8px;
     }
-  }
-
-  &__title {
-    display: none;
-  }
-
-  &__content {
-    display: none;
   }
 }
