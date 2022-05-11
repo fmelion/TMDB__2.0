@@ -6,6 +6,14 @@ function Content() {
   return (
     <div className='content'>
       <CardGrid/>
+      <CardGrid/>
+      <CardGrid/>
+      <CardGrid/>
+      <CardGrid/>
+      <CardGrid/>
+      <CardGrid/>
+      <CardGrid/>
+      <CardGrid/>
     </div>
   );
 }
