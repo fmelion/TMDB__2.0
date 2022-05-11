@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './_style.scss';
 import ButtonModal from '../../commons/ButtonModal';
 import useInput from '../../hooks/useInput';
@@ -30,18 +30,18 @@ function LoginModal({
 
       setShowLoginModal(false);
     } catch (err) {
-      alert("Login error")
+      alert('Login error');
     }
   };
 
   return (
-    <div className={`modalLogin ${showLoginModal ? 'active' : ''}`}>
-      <div className='modalLogin__container'>
-        <form onSubmit={handleSubmit} className='modalLogin__form'>
-          <h3 className='modalLogin__form--title'>Sign in</h3>
+    <div className={`modal ${showLoginModal ? 'active' : ''}`}>
+      <div className='modal__container'>
+        <form onSubmit={handleSubmit} className='modal__form'>
+          <h3 className='modal__form--title'>Sign in</h3>
           <input
             type='text'
-            className='modalLogin__form--input'
+            className='modal__form--input'
             placeholder='Email'
             aria-label='email'
             {...emailInput}
@@ -49,23 +49,23 @@ function LoginModal({
 
           <input
             type='password'
-            className='modalLogin__form--input'
+            className='modal__form--input'
             placeholder='Password'
             aria-label='password'
             {...passwordInput}
           />
 
-          <button className='modalLogin__form--submit' aria-label='submit'>
+          <button className='modal__form--submit' aria-label='submit'>
             Sign in
           </button>
         </form>
-          <ButtonModal onClick={handleOnRegister}>
-            <div className='modalLogin__form--register'>
-              Don't have an account? Create one
-            </div>
-          </ButtonModal>
+        <ButtonModal onClick={handleOnRegister}>
+          <div className='modal__switch'>
+            Don't have an account? Create one
+          </div>
+        </ButtonModal>
         <ButtonModal onClick={() => setShowLoginModal(false)}>
-          <p className='closeLoginModal'> x </p>
+          <p className='closeModal'> x </p>
         </ButtonModal>
       </div>
     </div>

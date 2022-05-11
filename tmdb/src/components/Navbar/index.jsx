@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import './_style.scss';
-import { MdSearch, MdAccountCircle, MdMenu } from 'react-icons/md';
+import {
+  MdSearch,
+  MdAccountCircle,
+  MdMenu,
+  MdFlightTakeoff,
+} from 'react-icons/md';
 import ButtonModal from '../../commons/ButtonModal';
 import ModalMenu from '../../utils/ModalMenu';
 import useInput from '../../hooks/useInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovies } from '../../state/reducers/getMovies';
-import LoginModal from '../LoginModal';
-import RegisterModal from '../RegisterModal';
+import LoginModal from '../LoginRegisterModals/LoginModal';
+import RegisterModal from '../LoginRegisterModals/RegisterModal';
 import { deleteUser } from '../../state/reducers/userReducer';
 
 function Navbar() {
@@ -69,15 +74,14 @@ function Navbar() {
       <div className='navbar__user'>
         {user.id ? (
           <>
-            <MdAccountCircle className='navbar__user--icon' />
             <div className='navbar__user--name'>{user.username}</div>
             <button className='navbar__user--logOut' onClick={handleLogout}>
-              LogOut
+              <MdFlightTakeoff />
             </button>
           </>
         ) : (
           <ButtonModal onClick={() => setShowLoginModal(true)}>
-            Login
+            <div className='navbar__user'>Login</div>
           </ButtonModal>
         )}
 
