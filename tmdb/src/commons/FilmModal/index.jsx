@@ -23,12 +23,11 @@ const FilmModal = ({ showModal, setShowModal, element }) => {
           <p className='filmModal__content--text'>{`${element.overview}`}</p>
         </div>
 
-        <div className="filmModal__close">
-        <ButtonModal onClick={() => setShowModal(false)}>
-          <div className="filmModal__close--x">x</div>
-        </ButtonModal>
+        <div className='filmModal__close'>
+          <ButtonModal onClick={() => setShowModal(false)}>
+            <div className='filmModal__close--x'>x</div>
+          </ButtonModal>
         </div>
-        
       </div>
     </div>
   );

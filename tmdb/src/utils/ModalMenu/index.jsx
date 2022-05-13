@@ -2,15 +2,16 @@ import React from 'react';
 import './_style.scss';
 import ButtonModal from '../../commons/ButtonModal';
 import genre from '../genres';
-import { getMovies } from '../../state/reducers/getMovies';
-import { useDispatch } from 'react-redux';
+
+import { useNavigate } from 'react-router-dom';
 
 function ModalMenu({ setShowMenu, showMenu }) {
-  const dispatch = useDispatch();
+  
+  const navigate = useNavigate();
 
-  const handleOnClick = id => {
-    dispatch(getMovies({ type: 'genre', genreId: id }));
+  const handleOnClick = ({ id }) => {
     setShowMenu(false);
+    navigate(`/genre/${id}`);
   };
 
   return (
@@ -19,7 +20,7 @@ function ModalMenu({ setShowMenu, showMenu }) {
       <div className='modalMenu__container'>
         {genre.genres.map(genre => (
           <ButtonModal
-            onClick={() => handleOnClick(genre.id)}
+            onClick={() => handleOnClick({ id: genre.id })}
             key={genre.id}
           >
             <div className='modalMenu__container--item'>{genre.name}</div>

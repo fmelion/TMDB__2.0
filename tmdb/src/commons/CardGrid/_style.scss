@@ -3,7 +3,7 @@
 .cardGridContainer {
   display: flex;
   width: 90%;
-  color: white;
+  color: var(--color-grey-light-4);
   flex-direction: column;
 
   @include respond(tablet) {

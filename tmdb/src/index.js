@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import './sass/main.scss';
 import App from './components/App';
 import store from './state/store';
-import Favourites from './components/Favourites';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { BrowserRouter} from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -14,10 +14,7 @@ root.render(
   <Provider store={store}>
     <React.StrictMode>
       <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<App />} />
-          <Route path='/favourites' element={<Favourites />} />
-        </Routes>
+      <App />
       </BrowserRouter>
     </React.StrictMode>
   </Provider>

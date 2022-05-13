@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import './_style.scss';
-import {
-  MdSearch,
-  MdMenu,
-  MdFlightTakeoff,
-} from 'react-icons/md';
+import { MdSearch, MdMenu, MdFlightTakeoff } from 'react-icons/md';
 import ButtonModal from '../../commons/ButtonModal';
 import ModalMenu from '../../utils/ModalMenu';
 import useInput from '../../hooks/useInput';
@@ -13,9 +9,11 @@ import { getMovies } from '../../state/reducers/getMovies';
 import LoginModal from '../LoginRegisterModals/LoginModal';
 import RegisterModal from '../LoginRegisterModals/RegisterModal';
 import { deleteUser } from '../../state/reducers/userReducer';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const user = useSelector(state => state.user);
 
@@ -45,10 +43,7 @@ function Navbar() {
       <ModalMenu showMenu={showMenu} setShowMenu={setShowMenu}></ModalMenu>
 
       <ButtonModal>
-        <h2
-          className='navbar__home'
-          onClick={() => dispatch(getMovies({ type: 'popularMovies' }))}
-        >
+        <h2 className='navbar__home' onClick={() => navigate('/')}>
           tmdb!
         </h2>
       </ButtonModal>
