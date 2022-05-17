@@ -26,8 +26,8 @@ app.use(passport.initialize());
 app.use('/', routes);
 
 app.use(function (err, req, res, next) {
-  res.status(err.status || 500);
-  res.json({ error: err });
+  res.sendStatus(err.status || 500);
+  //res.json({ error: err });
 });
 
 db.sync({ force: false });

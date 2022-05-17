@@ -78,4 +78,55 @@ router.get(
   }
 );
 
+router.get(
+  '/favourites',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    try {
+      const userId = req.user.id;
+
+      const favourites = await Favourite.findAll({ where: { userId } });
+
+      res.status(200).send(favourites);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
+router.post(
+  '/favourites',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    try {
+      const userId = req.user.id;
+
+      const fav = await Favourite.create({ movieId: req.body.movieId, userId });
+
+      res.status(200).send(fav);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
+router.delete(
+  '/favourites',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res, next) => {
+    try {
+      const userId = req.user.id;
+
+      const fav = await Favourite.destroy({
+        where: { movieId: req.body.movieId, userId },
+      });
+
+      res.sendStatus(200);
+      console.log('entre');
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 module.exports = router;
