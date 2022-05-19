@@ -8,6 +8,13 @@ const router = express.Router();
 
 router.post('/register', async (req, res, next) => {
   try {
+    const userExist = await User.findOne({ where: { email: req.body.email } });
+
+    if (userExist) {
+      res.send(`the user for email ${req.body.email} already exists.`);
+      return;
+    }
+
     const user = await User.create({
       username: req.body.username,
       password: hashSync(req.body.password, 10),
@@ -65,7 +72,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.get(
-  '/protected',
+  '/user',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     res.status(200).send({
@@ -111,20 +118,23 @@ router.post(
 );
 
 router.delete(
-  '/favourites',
+  '/favourites/:movieId',
   passport.authenticate('jwt', { session: false }),
   async (req, res, next) => {
     try {
       const userId = req.user.id;
+      const {movieId} = req.params;
+
+      console.log(movieId);
 
       const fav = await Favourite.destroy({
-        where: { movieId: req.body.movieId, userId },
+        where: { movieId, userId },
       });
 
       res.sendStatus(200);
-      console.log('entre');
     } catch (err) {
-      next(err);
+      //console.log(err);
+      res.send(err);
     }
   }
 );

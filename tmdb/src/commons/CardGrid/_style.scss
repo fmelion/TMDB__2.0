@@ -43,9 +43,6 @@
 
     @include respond(pc) {
       height: 41rem;
-    }
-
-    @include respond(pc) {
       &::-webkit-scrollbar {
         display: block;
       }

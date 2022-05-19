@@ -5,6 +5,7 @@ import Search from '../Search';
 import './_style.scss';
 import { useDispatch } from 'react-redux';
 import { getUser } from '../../state/reducers/userReducer';
+import { getFavourite } from '../../state/reducers/favouritesReducer';
 import { Routes, Route } from 'react-router-dom';
 
 export default function App() {
@@ -13,8 +14,17 @@ export default function App() {
  
 
   React.useEffect(() => {
-    dispatch(getUser());
+    dispatch(getUser()).then(()=>{
+      dispatch(getFavourite());
+    })
+    
   }, [dispatch]);
+
+  // React.useEffect(() => {
+  //   dispatch(getFavourite());
+  // }, [dispatch]);
+
+
 
   return (
     <div className='container'>

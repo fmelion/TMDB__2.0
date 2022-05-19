@@ -5,6 +5,7 @@
 }
 .card {
   display: flex;
+  position:relative;
 
   flex-direction: column;
   align-items: center;
@@ -30,4 +31,12 @@
       border-radius: 8px;
     }
   }
+
 }
+
+.fav{
+  color:red;
+  position: absolute;
+  left: 0;
+  bottom:0;
+  }

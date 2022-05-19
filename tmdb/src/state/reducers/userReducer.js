@@ -9,7 +9,7 @@ export const getUser = createAsyncThunk('GET_USER', () => {
   const token = localStorage.getItem('token');
 
   return axios
-    .get('http://localhost:3001/protected', {
+    .get('http://localhost:3001/user', {
       headers: {
         Authorization: token,
       },

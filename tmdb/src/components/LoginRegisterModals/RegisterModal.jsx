@@ -30,6 +30,11 @@ function RegisterModal({
         }
       );
 
+      if (!userRegistered.data.user) {
+        alert(userRegistered.data);
+        return;
+      }
+
       if (userRegistered.data.user.id) {
         const userLoggedIn = await axios.post('http://localhost:3001/login', {
           email: emailInput.value,

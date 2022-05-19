@@ -2,8 +2,13 @@ import React from 'react';
 import './_style.scss';
 import ButtonModal from '../ButtonModal';
 import Rating from '../../utils/Rating/Rating';
+import FavButton from '../FavButton';
+import { useSelector } from 'react-redux';
 
 const FilmModal = ({ showModal, setShowModal, element }) => {
+
+  const user = useSelector(state => state.user);
+
   return (
     <div className={`filmModal ${showModal ? 'active' : ''}`}>
       <div className='filmModal__wrapper'>
@@ -29,6 +34,7 @@ const FilmModal = ({ showModal, setShowModal, element }) => {
           </ButtonModal>
         </div>
       </div>
+      {user.id ? <FavButton element={element} /> : null}
     </div>
   );
 };

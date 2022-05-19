@@ -4,8 +4,12 @@ import Rating from '../../utils/Rating/Rating';
 import ButtonModal from '../ButtonModal';
 import FilmModal from '../FilmModal';
 
+import FavCard from '../FavCard';
+import { useSelector } from 'react-redux';
+
 function Card({ element }) {
   const [showModal, setShowModal] = useState(false);
+  const user = useSelector(state => state.user);
 
   return (
     <div className='wrapper'>
@@ -19,6 +23,7 @@ function Card({ element }) {
             />
             <Rating rate={element.vote_average * 10} />
           </div>
+      {user.id ? <FavCard element={element} /> : null}
         </div>
       </ButtonModal>
       <FilmModal
@@ -26,6 +31,7 @@ function Card({ element }) {
         setShowModal={setShowModal}
         element={element}
       ></FilmModal>
+
     </div>
   );
 }
