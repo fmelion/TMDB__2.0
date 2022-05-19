@@ -6,9 +6,9 @@ import FavButton from '../FavButton';
 import { useSelector } from 'react-redux';
 
 const FilmModal = ({ showModal, setShowModal, element }) => {
-
   const user = useSelector(state => state.user);
 
+  console.log(element);
   return (
     <div className={`filmModal ${showModal ? 'active' : ''}`}>
       <div className='filmModal__wrapper'>
@@ -25,7 +25,9 @@ const FilmModal = ({ showModal, setShowModal, element }) => {
 
         <div className='filmModal__content'>
           <h2 className='filmModal__content--title'>{element.title}</h2>
+          <p className='filmModal__content--text'>{element.release_date}</p>
           <p className='filmModal__content--text'>{`${element.overview}`}</p>
+          {user.id ? <FavButton element={element} /> : null}
         </div>
 
         <div className='filmModal__close'>
@@ -34,7 +36,6 @@ const FilmModal = ({ showModal, setShowModal, element }) => {
           </ButtonModal>
         </div>
       </div>
-      {user.id ? <FavButton element={element} /> : null}
     </div>
   );
 };

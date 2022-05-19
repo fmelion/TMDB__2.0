@@ -3,9 +3,11 @@ import {
   addFavourite,
   removeFavourite,
 } from '../../state/reducers/favouritesReducer';
+import './_style.scss';
+import {MdOutlineAdd,MdFavorite}  from 'react-icons/md';
+
 
 const FavButton = ({ element }) => {
-
   const dispatch = useDispatch();
 
   const favs = useSelector(state => state.favourites);
@@ -14,22 +16,25 @@ const FavButton = ({ element }) => {
 
   const handleOnClick = accion => {
     if (accion === 'remove') {
-      dispatch(removeFavourite({movieId: element.id }));
+      dispatch(removeFavourite({ movieId: element.id }));
     } else {
-      dispatch(addFavourite({movieId: element.id }));
+      dispatch(addFavourite({ movieId: element.id }));
     }
   };
 
   return fav[0] ? (
-    <div className='buttons'>
-      <button className='button is-success' onClick={() => handleOnClick('remove')}>
-        Remove from Favourite
+    <div className='buttonfav'>
+      <button
+        className='buttonfav__remove'
+        onClick={() => handleOnClick('remove')}
+      >
+        <MdFavorite/>
       </button>
     </div>
   ) : (
-    <div className='buttons'>
-      <button className='button is-danger' onClick={() => handleOnClick('add')}>
-        Add to Favourite
+    <div className='buttonfav'>
+      <button className='buttonfav__add' onClick={() => handleOnClick('add')}>
+      <MdOutlineAdd/>
       </button>
     </div>
   );

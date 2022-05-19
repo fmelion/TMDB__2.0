@@ -1,0 +1,33 @@
+@import '../../sass/abstracts/mixins';
+.buttonfav {
+  padding: 1rem;
+
+  &__remove {
+    border: none;
+    font-family: inherit;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: red;
+
+    @include respond(tablet) {
+      font-size: 1.8rem;
+    }
+    @include respond(pc) {
+      font-size: 2rem;
+    }
+  }
+
+  &__add {
+    border: none;
+    font-family: inherit;
+    background-color: transparent;
+    font-size: 1.5rem;
+
+    @include respond(tablet) {
+      font-size: 1.8rem;
+    }
+    @include respond(pc) {
+      font-size: 2rem;
+    }
+  }
+}
