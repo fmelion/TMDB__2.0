@@ -7,8 +7,6 @@ import { useSelector } from 'react-redux';
 
 const FilmModal = ({ showModal, setShowModal, element }) => {
   const user = useSelector(state => state.user);
-
-  console.log(element);
   return (
     <div className={`filmModal ${showModal ? 'active' : ''}`}>
       <div className='filmModal__wrapper'>

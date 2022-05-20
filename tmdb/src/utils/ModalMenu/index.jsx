@@ -6,7 +6,6 @@ import genre from '../genres';
 import { useNavigate } from 'react-router-dom';
 
 function ModalMenu({ setShowMenu, showMenu }) {
-  
   const navigate = useNavigate();
 
   const handleOnClick = ({ id }) => {

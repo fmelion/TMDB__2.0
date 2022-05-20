@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import getMovies from '../../utils/getMovies';
 import genre from '../../utils/genres';
 
-function Search() {
+function SearchGenre() {
   const { id } = useParams();
 
   const genreName = genre.genres.find(
@@ -27,4 +27,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchGenre;

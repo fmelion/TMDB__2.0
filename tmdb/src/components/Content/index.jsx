@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import CardGrid from '../../commons/CardGrid';
 import './_style.scss';
 import getMovies from '../../utils/getMovies';
+import { useSelector } from 'react-redux';
 
 function Content() {
+
+  const user = useSelector(state => state.user)
+
   const [trending, setTrending] = useState([]);
   const [action, setAction] = useState([]);
   const [drama, setDrama] = useState([]);

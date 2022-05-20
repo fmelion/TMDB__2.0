@@ -16,6 +16,18 @@
   transition: all 0.3s ease-in-out;
   color: black;
 
+  &__list{
+    border:none;
+    padding: 2rem;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor:pointer;
+    
+  }
+  
+
   &__title {
     padding: 2rem;
 
@@ -26,7 +38,11 @@
     @include respond(tablet) {
       font-size: 1.6em;
     }
+
+    
   }
+
+  
 
   &__container {
     height: 60%;

@@ -5,7 +5,7 @@ import ButtonModal from '../../commons/ButtonModal';
 import ModalMenu from '../../utils/ModalMenu';
 import useInput from '../../hooks/useInput';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMovies } from '../../state/reducers/getMovies';
+
 import LoginModal from '../LoginRegisterModals/LoginModal';
 import RegisterModal from '../LoginRegisterModals/RegisterModal';
 import { deleteUser } from '../../state/reducers/userReducer';
@@ -25,8 +25,8 @@ function Navbar() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(getMovies({ type: 'search', searchString: searchString.value }));
     document.getElementById('myInput').value = '';
+    navigate(`/search/${searchString.value}`);
   };
 
   const handleLogout = () => {
@@ -54,12 +54,11 @@ function Navbar() {
             type='text'
             className='navbar__search--input'
             placeholder='Search movies'
-            aria-label='search'
-            {...searchString}
             id='myInput'
+            {...searchString}
           />
 
-          <button className='navbar__search--submit' aria-label='submit search'>
+          <button className='navbar__search--submit'>
             <MdSearch className='navbar__search--submit--icon' />
           </button>
         </div>
